@@ -4,15 +4,24 @@ import edge_tts
 import asyncio
 from uuid import uuid4
 from voices import voices
+from flask_restx import Api, Resource, reqparse
 
 app = Flask(__name__)
+api = Api(app, version='1.0', title='Text-to-Speech API', description='API do konwersji tekstu na mowę', doc='/')  # Dokumentacja dostępna na '/'
+
+
+ns = api.namespace('tts', description='Operacje konwersji tekstu na mowę')
+
 
 TEMP_DIR = "temp_audio"
 
-
-# Tworzenie katalogu na pliki tymczasowe
 if not os.path.exists(TEMP_DIR):
     os.makedirs(TEMP_DIR)
+
+
+post_parser = reqparse.RequestParser()
+post_parser.add_argument('text', type=str, required=True, help='Tekst do zamiany na dźwięk')
+post_parser.add_argument('voice', type=str, default='pl-PL-ZofiaNeural', help='Nazwa głosu do użycia z listy dostępnych głosów')
 
 
 async def generate_audio(text, voice, output_file):
@@ -20,24 +29,28 @@ async def generate_audio(text, voice, output_file):
     await communicate.save(output_file)
 
 
-@app.route('/convert-text-to-audio/', methods=['POST'])
-def convert_text_to_audio():
-    try:
-        text = request.form.get('text')
-        voice = request.form.get('voice', 'pl-PL-ZofiaNeural')  # domyślny głos, jeśli nie podano
+@ns.route('/convert-text-to-audio/')
+class ConvertTextToAudio(Resource):
+    @ns.doc(description="Zamienia tekst na plik audio w formacie MP3", responses={
+        200: 'Sukces',
+        400: 'Błędne żądanie',
+        500: 'Błąd serwera'
+    })
+    @ns.expect(post_parser)
+    def post(self):
+        args = post_parser.parse_args()
+        text = args['text']
+        voice = args['voice']
         output_file = os.path.join(TEMP_DIR, f"{uuid4()}.mp3")
 
-        # Sprawdzenie, czy podany głos istnieje w liście dostępnych głosów
         available_voices = [v['Name'] for v in voices]
         if voice not in available_voices:
             return jsonify({'error': f'Voice {voice} is not available. Choose a valid voice from /available-voices.'}), 400
 
-        # Użycie asyncio.run() wewnątrz funkcji synchronizowanej Flask
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         loop.run_until_complete(generate_audio(text, voice, output_file))
 
-        # Sprawdzanie, czy plik został poprawnie wygenerowany
         if not os.path.exists(output_file) or os.path.getsize(output_file) == 0:
             return jsonify({'error': 'Audio file generation failed.'}), 500
 
@@ -51,19 +64,13 @@ def convert_text_to_audio():
 
         return send_file(output_file, as_attachment=True, download_name='output.mp3', mimetype='audio/mpeg')
 
-    except KeyError:
-        return jsonify({'error': 'Missing "text" parameter in request.'}), 400
 
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-
-# Endpoint do uzyskania listy dostępnych głosów
-@app.route('/available-voices', methods=['GET'])
-def get_available_voices():
-    return jsonify(voices)
+@ns.route('/available-voices')
+class AvailableVoices(Resource):
+    @ns.doc(description="Zwraca listę dostępnych głosów")
+    def get(self):
+        return jsonify(voices)
 
 
-# Uruchamianie serwera
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001)
