@@ -1,0 +1,17 @@
+version: '3.2'
+services:
+  app:
+    image: "tts-edge-backend:${TAG}"
+    restart: unless-stopped
+    ports:
+      - "8087:5001"
+    environment:
+      - VIRTUAL_HOST=text-to-speech.letscode.it
+      - VIRTUAL_PORT=5001
+    networks:
+      - proxy-tier
+
+networks:
+  proxy-tier:
+    external:
+      name: nginx-proxy
