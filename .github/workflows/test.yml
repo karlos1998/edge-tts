@@ -31,6 +31,7 @@ jobs:
       - name: Start Flask app
         run: |
           . venv/bin/activate
+          export FLASK_APP=app.py  # Ustawienie zmiennej FLASK_APP
           nohup python -m flask run --host=127.0.0.1 --port=5001 &> flask.log &
           sleep 5
 
