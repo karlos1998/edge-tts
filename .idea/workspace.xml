@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1042e131-202c-4bb4-a58b-30b0d6eafd46" name="Changes" comment="change file name to app.py">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/docker-test.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1042e131-202c-4bb4-a58b-30b0d6eafd46" name="Changes" comment="docker compose with test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +102,7 @@
       <workItem from="1729683372040" duration="3358000" />
       <workItem from="1729686757339" duration="2766000" />
       <workItem from="1729764038825" duration="358000" />
-      <workItem from="1729764516839" duration="2330000" />
+      <workItem from="1729764516839" duration="2454000" />
     </task>
     <task id="LOCAL-00001" summary="first release">
       <option name="closed" value="true" />
@@ -197,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729766371973</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="docker compose with test">
+      <option name="closed" value="true" />
+      <created>1729766858649</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1729766858649</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +213,8 @@
     <MESSAGE value="add requirements &amp; update test.yml" />
     <MESSAGE value="update test.yml" />
     <MESSAGE value="change file name to app.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="change file name to app.py" />
+    <MESSAGE value="docker compose with test" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker compose with test" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/edge_tts_test$main.coverage" NAME="main Coverage Results" MODIFIED="1729764206407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
