@@ -41,7 +41,7 @@ jobs:
 
       - name: Check if Flask is running
         run: |
-          curl --fail http://127.0.0.1:5001/available-voices
+          curl --fail http://127.0.0.1:5001/tts/available-voices
 
       - name: Integration test - Convert text to audio
         run: |

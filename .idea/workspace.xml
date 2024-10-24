@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1042e131-202c-4bb4-a58b-30b0d6eafd46" name="Changes" comment="update test.yml">
+    <list default="true" id="1042e131-202c-4bb4-a58b-30b0d6eafd46" name="Changes" comment="change file name to app.py">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/test.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.app.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -104,7 +105,7 @@
       <workItem from="1729683372040" duration="3358000" />
       <workItem from="1729686757339" duration="2766000" />
       <workItem from="1729764038825" duration="358000" />
-      <workItem from="1729764516839" duration="1701000" />
+      <workItem from="1729764516839" duration="1848000" />
     </task>
     <task id="LOCAL-00001" summary="first release">
       <option name="closed" value="true" />
@@ -178,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729766077248</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="change file name to app.py">
+      <option name="closed" value="true" />
+      <created>1729766241686</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1729766241686</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,10 +199,11 @@
     <MESSAGE value="test workflow" />
     <MESSAGE value="add requirements &amp; update test.yml" />
     <MESSAGE value="update test.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="update test.yml" />
+    <MESSAGE value="change file name to app.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="change file name to app.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/edge_tts_test$main.coverage" NAME="main Coverage Results" MODIFIED="1729764206407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/edge_tts$main.coverage" NAME="main Coverage Results" MODIFIED="1729764790523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/edge_tts$main.coverage" NAME="app Coverage Results" MODIFIED="1729766324463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
